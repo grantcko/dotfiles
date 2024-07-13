@@ -1,4 +1,9 @@
-This repository is used by [Le Wagon](https://www.lewagon.com) students.
+## Grant's Dotfiles
+
+This is a fork from Le Wagon's dotfiles. [Here is their whole computer setup](github.com/lewagon/setup). Default to those instructions. Covers 99% of what I use. I've added a bit.
+
+## Setting up the terminal:
+```zsh install.sh```
 
 ## Toolset
 
