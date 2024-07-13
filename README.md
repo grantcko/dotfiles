@@ -6,12 +6,12 @@ This is a fork from Le Wagon's dotfiles. [Here is their whole computer setup](gi
 Mac
 
 ## Setting up the terminal:
-Run:
+1. Run:
 ```
 zsh install.sh
 ```
 
-open terminal preferences and install the file ending in `.terminal`
+2. Open terminal preferences. Navigate to profiles and import the file ending in `.terminal`. Set set terminal to open up using it and set as default.
 
 ## Toolset
 
