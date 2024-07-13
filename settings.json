@@ -84,5 +84,15 @@
     "workbench.settings.useSplitJSON": true,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.panel.defaultLocation": "right",
-    "files.autoSave": "afterDelay",
+    "[erb]": {
+      "editor.formatOnSave": true
+    },
+    "files.associations": {
+      "*.erb": "erb"
+    },
+    "arduino.ignoreBoards": [],
+    "arduino.useArduinoCli": true,
+    "arduino.analyzeOnSettingChange": true,
+    "arduino.clearOutputOnBuild": true,
+    "workbench.colorTheme": "Default Light Modern",
 }
