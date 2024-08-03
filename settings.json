@@ -94,5 +94,6 @@
     "arduino.useArduinoCli": true,
     "arduino.analyzeOnSettingChange": true,
     "arduino.clearOutputOnBuild": true,
-    "workbench.colorTheme": "Default Light Modern",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.statusBar.visible": false,
 }
