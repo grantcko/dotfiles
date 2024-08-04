@@ -96,4 +96,6 @@
     "arduino.clearOutputOnBuild": true,
     "security.workspace.trust.untrustedFiles": "open",
     "workbench.statusBar.visible": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
 }
