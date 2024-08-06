@@ -21,3 +21,11 @@ zsh install.sh
 
 ## Native Mac apps
 - FBReader
+- Brave Browser
+- Biglybt
+- Google Drive
+- surfshark
+- visual studio code
+- davinci resolve
+- adobe lightroom
+- adobe photoshop
