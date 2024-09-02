@@ -75,3 +75,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
 fi
+
+# Created by `pipx` on 2024-07-13 08:55:54
+export PATH="$PATH:/Users/granthall/.local/bin"
