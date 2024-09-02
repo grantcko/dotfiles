@@ -29,3 +29,11 @@ zsh install.sh
 - davinci resolve
 - adobe lightroom
 - adobe photoshop
+- deepl
+- libreoffice
+- surfshark
+- app cleaner
+
+notes:
+- save logs and other data from resolve and other applications
+- 
