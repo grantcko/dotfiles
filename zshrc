@@ -78,3 +78,10 @@ fi
 
 # Created by `pipx` on 2024-07-13 08:55:54
 export PATH="$PATH:/Users/granthall/.local/bin"
+
+export gdprojectbay=~/Google\ Drive/My\ Drive/01-project-bay
+export gdknowledge=~/Google\ Drive/My\ Drive/02-knowledge
+export gdsharehouse=~/Google\ Drive/My\ Drive/03-share-house
+export gdassets=~/Google\ Drive/My\ Drive/04-assets
+export gdarchive=~/Google\ Drive/My\ Drive/05-archive
+export gdmisc=~/Google\ Drive/My\ Drive/06-misc

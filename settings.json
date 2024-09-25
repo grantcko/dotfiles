@@ -93,7 +93,7 @@
     "arduino.useArduinoCli": true,
     "arduino.analyzeOnSettingChange": true,
     "arduino.clearOutputOnBuild": true,
-    "workbench.colorTheme": "Ayu Light",
+    "workbench.colorTheme": "GitHub Light Default",
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
     "explorer.fileNesting.patterns": {
@@ -116,4 +116,5 @@
     "workbench.statusBar.visible": false,
     "editor.unicodeHighlight.nonBasicASCII": false,
     "editor.unicodeHighlight.invisibleCharacters": false,
+    "diffEditor.ignoreTrimWhitespace": true,
 }
