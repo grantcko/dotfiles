@@ -19,5 +19,21 @@
     "key": "shift+cmd+v",
     "command": "-markdown.showPreview",
     "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+  },
+  {
+    "key": "alt+k alt+t",
+    "command": "workbench.action.selectTheme"
+  },
+  {
+    "key": "cmd+r cmd+t",
+    "command": "-workbench.action.selectTheme"
+  },
+  {
+    "key": "ctrl+shift+x",
+    "command": "editor.cpp.disableenabled"
+  },
+  {
+    "key": "ctrl+shift+c",
+    "command": "editor.action.enableCppGlobally"
   }
 ]

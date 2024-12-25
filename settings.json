@@ -93,7 +93,6 @@
     "arduino.useArduinoCli": true,
     "arduino.analyzeOnSettingChange": true,
     "arduino.clearOutputOnBuild": true,
-    "workbench.colorTheme": "GitHub Light Default",
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
     "explorer.fileNesting.patterns": {
