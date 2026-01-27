@@ -35,5 +35,21 @@
   {
     "key": "ctrl+shift+c",
     "command": "editor.action.enableCppGlobally"
+  },
+  {
+    "key": "ctrl+alt+w",
+    "command": "openEditors.closeAll"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
+  {
+    "key": "ctrl+a",
+    "command": "composerMode.chat"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "composerMode.plan"
   }
 ]

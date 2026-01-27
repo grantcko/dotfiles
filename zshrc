@@ -84,4 +84,10 @@ export gdknowledge=~/Google\ Drive/My\ Drive/02-knowledge
 export gdsharehouse=~/Google\ Drive/My\ Drive/03-share-house
 export gdassets=~/Google\ Drive/My\ Drive/04-assets
 export gdarchive=~/Google\ Drive/My\ Drive/05-archive
-export gdmisc=~/Google\ Drive/My\ Drive/06-misc
+export gdmisc=~/Google\ Drive/My\ Drive/06-miscexport OLLAMA_HOST=http://localhost:11434
+
+# Start Flask financial ledger server
+screen -dmS geefintech bash -c 'cd /Users/granthall/code/geefintech && source venv/bin/activate && python app.py'
+
+# Start Ollama server
+screen -dmS ollama ollama serve

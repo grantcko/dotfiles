@@ -116,4 +116,6 @@
     "editor.unicodeHighlight.nonBasicASCII": false,
     "editor.unicodeHighlight.invisibleCharacters": false,
     "diffEditor.ignoreTrimWhitespace": true,
+    "workbench.editor.splitInGroupLayout": "vertical",
+    "window.autoDetectColorScheme": true,
 }
