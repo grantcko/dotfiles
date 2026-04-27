@@ -380,7 +380,7 @@ if $effective_builtin; then
         out+="${sep}${five_hour_color}${five_hour_pct}%${reset}"
         if [ -n "$builtin_five_hour_reset" ] && [ "$builtin_five_hour_reset" != "null" ]; then
             five_hour_left=$(format_time_left "$builtin_five_hour_reset")
-            [ -n "$five_hour_left" ] && out+=" ${dim}in ${five_hour_left}${reset}"
+            [ -n "$five_hour_left" ] && out+=" ${dim}--- ${five_hour_left}${reset}"
         fi
     fi
 
@@ -390,7 +390,7 @@ if $effective_builtin; then
         out+="${sep}${seven_day_color}${seven_day_pct}%${reset}"
         if [ -n "$builtin_seven_day_reset" ] && [ "$builtin_seven_day_reset" != "null" ]; then
             seven_day_left=$(format_time_left "$builtin_seven_day_reset")
-            [ -n "$seven_day_left" ] && out+=" ${dim}in ${seven_day_left}${reset}"
+            [ -n "$seven_day_left" ] && out+=" ${dim}--- ${seven_day_left}${reset}"
         fi
     fi
 
@@ -429,7 +429,7 @@ elif [ -n "$usage_data" ] && echo "$usage_data" | jq -e '.five_hour' >/dev/null 
     [ -n "$five_hour_epoch" ] && five_hour_left=$(format_time_left "$five_hour_epoch")
 
     out+="${sep}${five_hour_color}${five_hour_pct}%${reset}"
-    [ -n "$five_hour_left" ] && out+=" ${dim}in ${five_hour_left}${reset}"
+    [ -n "$five_hour_left" ] && out+=" ${dim}--- ${five_hour_left}${reset}"
 
     # ---- 7-day (weekly) ----
     seven_day_pct=$(echo "$usage_data" | jq -r '.seven_day.utilization // 0' | awk '{printf "%.0f", $1}')
@@ -440,7 +440,7 @@ elif [ -n "$usage_data" ] && echo "$usage_data" | jq -e '.five_hour' >/dev/null 
     [ -n "$seven_day_epoch" ] && seven_day_left=$(format_time_left "$seven_day_epoch")
 
     out+="${sep}${seven_day_color}${seven_day_pct}%${reset}"
-    [ -n "$seven_day_left" ] && out+=" ${dim}in ${seven_day_left}${reset}"
+    [ -n "$seven_day_left" ] && out+=" ${dim}--- ${seven_day_left}${reset}"
 
     render_extra_usage "$usage_data"
 else
