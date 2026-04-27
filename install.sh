@@ -69,6 +69,15 @@ if [[ `uname` =~ "Darwin" ]]; then
   ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 fi
 
+# Claude Code: symlink statusline script; copy settings template if no settings exist yet
+mkdir -p "$HOME/.claude"
+symlink $PWD/claude/statusline-command.sh "$HOME/.claude/statusline-command.sh"
+chmod +x "$HOME/.claude/statusline-command.sh"
+if [ ! -f "$HOME/.claude/settings.json" ]; then
+  echo "-----> Copying Claude Code settings template to ~/.claude/settings.json"
+  cp $PWD/claude/settings.json "$HOME/.claude/settings.json"
+fi
+
 # Refresh the current terminal with the newly installed configuration
 exec zsh
 
