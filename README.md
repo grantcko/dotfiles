@@ -36,4 +36,8 @@ zsh install.sh
 
 notes:
 - save logs and other data from resolve and other applications
-- 
+
+## Brave settings and extensions
+
+See [brave/README.md](brave/README.md) for the portable settings snapshot,
+extension install links, and export/restore commands.
