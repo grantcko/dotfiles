@@ -2,3 +2,16 @@ Host *
   UseKeychain yes
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_ed25519
+
+# Speed up connections by reusing them
+Host *
+    ControlMaster auto
+    ControlPath ~/.ssh/master-%r@%h:%p
+    ControlPersist 30m
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+
+Host openclaw-nbg1
+    HostName openclaw-nbg1
+    User grant
+    ForwardAgent yes

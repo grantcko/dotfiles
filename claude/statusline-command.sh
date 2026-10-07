@@ -365,7 +365,7 @@ render_extra_usage() {
     if [ -n "$used" ] && [ -n "$limit" ] && [[ "$used" != *'$'* ]] && [[ "$limit" != *'$'* ]]; then
         local color
         color=$(usage_color "$pct")
-        out+="${sep}${white}extra${reset} ${color}\$${used}/\$${limit}${reset}"
+        out+="${sep}${white}extra${reset} ${color}\$${limit}/\$${used}${reset}"
     else
         out+="${sep}${white}extra${reset} ${green}enabled${reset}"
     fi

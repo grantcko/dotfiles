@@ -45,6 +45,5 @@
   },
   "effortLevel": "medium",
   "theme": "light",
-  "autoMemoryEnabled": false,
-  "skipDangerousModePermissionPrompt": true
+  "autoMemoryEnabled": false
 }

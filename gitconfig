@@ -54,11 +54,14 @@
 [branch "master"]
   mergeoptions = --no-edit
 
-[pull]
-  rebase = false
-
 [init]
   defaultBranch = master
 [user]
 	email = grantclone@gmail.com
 	name = Grant Hall
+[credential "https://origin.cursor.com/git"]
+	helper =
+	helper = !/Users/granthall/.local/bin/origin credential-helper
+[credential "https://origin.cursor.com"]
+	helper =
+	helper = !/Users/granthall/.local/bin/origin credential-helper

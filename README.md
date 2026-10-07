@@ -41,3 +41,22 @@ notes:
 
 See [brave/README.md](brave/README.md) for the portable settings snapshot,
 extension install links, and export/restore commands.
+
+## iTerm appearance
+
+See [iterm/README.md](iterm/README.md) for portable profile appearance and how to
+refresh it. The live iTerm preferences and Finder metadata remain local and are
+not tracked.
+
+## Current machine setup
+
+- Shell startup uses mise last so its managed tools take precedence, with rbenv
+  and direnv integration retained. Shared aliases load from `~/.aliases`.
+- `vps-sync` is available only when `~/code/scripts/vps-sync.sh` exists.
+- SSH connection reuse and agent forwarding for `openclaw-nbg1` reflect the
+  existing configuration. Agent forwarding is enabled only for that host.
+- Git's Cursor credential-helper entries require the installed helper at the
+  recorded path. They contain no credentials. No default pull reconciliation
+  policy is set here; choose an explicit pull strategy when needed.
+- The Claude bootstrap template leaves bypass-mode warning acceptance to the
+  user. Existing `~/.claude/settings.json` is not overwritten by installation.
