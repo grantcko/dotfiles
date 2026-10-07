@@ -118,4 +118,5 @@
     "diffEditor.ignoreTrimWhitespace": true,
     "workbench.editor.splitInGroupLayout": "vertical",
     "window.autoDetectColorScheme": true,
+    "update.showReleaseNotes": false,
 }

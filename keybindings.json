@@ -51,5 +51,14 @@
   {
     "key": "ctrl+p",
     "command": "composerMode.plan"
+  },
+  {
+    "key": "cmd+y",
+    "command": "-redo",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+y",
+    "command": "-aichat.newfollowupaction"
   }
 ]
