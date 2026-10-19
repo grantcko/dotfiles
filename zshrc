@@ -45,16 +45,13 @@ k() {
   pids=$(lsof -ti :"$1")
   [ -n "$pids" ] && kill $pids
 }
-export PATH="/Users/granthall/.vit/venv/bin:$PATH"
+export PATH="$HOME/.vit/venv/bin:$PATH"
 alias vps="$HOME/bin/vps"
 alias zvps="$HOME/bin/zvps"
 
 # >>> grok installer >>>
 export PATH="$HOME/.grok/bin:$PATH"
 # <<< grok installer <<<
-
-# Hermes Agent — ensure ~/.local/bin is on PATH
-export PATH="$HOME/.local/bin:$PATH"
 
 # >>> Hermes fuzzy editor helpers >>>
 export PATH="$HOME/.local/bin:$PATH"

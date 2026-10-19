@@ -487,7 +487,7 @@
       "Name": "Default (portable)",
       "Non Ascii Font": "Monaco 12",
       "Non-ASCII Anti Aliased": true,
-      "Normal Font": "ComicShannsMonoNFM-Regular 20",
+      "Normal Font": "JetBrainsMono-Regular 20",
       "Selected Text Color": {
         "Alpha Component": 1,
         "Blue Component": 0.5,

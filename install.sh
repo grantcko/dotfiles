@@ -1,13 +1,16 @@
 #!/bin/zsh
 
-# Define a function which rename a `target` file to `target.backup` if the file
-# exists and if it's a 'real' file, ie not a symlink
+# Resolve files relative to this script, even when launched from another directory.
+DOTFILES_DIR="${0:A:h}"
+cd "$DOTFILES_DIR" || exit 1
+
+# Back up existing regular files without overwriting earlier backups.
 backup() {
   target=$1
   if [ -e "$target" ]; then
     if [ ! -L "$target" ]; then
-      mv "$target" "$target.backup"
-      echo "-----> Moved your old $target config file to $target.backup"
+      mv "$target" "$target.backup.$(date +%Y%m%d%H%M%S).$$"
+      echo "-----> Moved your old $target config file to a timestamped backup"
     fi
   fi
 }
@@ -15,9 +18,9 @@ backup() {
 symlink() {
   file=$1
   link=$2
-  if [ ! -e "$link" ]; then
+  if [ ! -e "$link" ] && [ ! -L "$link" ]; then
     echo "-----> Symlinking your new $link"
-    ln -s $file $link
+    ln -s "$file" "$link"
   fi
 }
 
@@ -26,21 +29,19 @@ symlink() {
 for name in aliases gitconfig irbrc rspec zprofile zshrc; do
   if [ ! -d "$name" ]; then
     target="$HOME/.$name"
-    backup $target
-    symlink $PWD/$name $target
+    backup "$target"
+    symlink "$DOTFILES_DIR/$name" "$target"
   fi
 done
 
-# Install zsh-syntax-highlighting plugin
-CURRENT_DIR=`pwd`
-ZSH_PLUGINS_DIR="$HOME/.oh-my-zsh/custom/plugins"
-mkdir -p "$ZSH_PLUGINS_DIR" && cd "$ZSH_PLUGINS_DIR"
-if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
-  echo "-----> Installing zsh plugin 'zsh-syntax-highlighting'..."
-  git clone https://github.com/zsh-users/zsh-autosuggestions
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting
-fi
-cd "$CURRENT_DIR"
+# Install each optional plugin independently.
+ZSH_PLUGINS_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins"
+mkdir -p "$ZSH_PLUGINS_DIR"
+for plugin in zsh-autosuggestions zsh-syntax-highlighting; do
+  if [ ! -d "$ZSH_PLUGINS_DIR/$plugin" ]; then
+    git clone "https://github.com/zsh-users/$plugin" "$ZSH_PLUGINS_DIR/$plugin" || exit 1
+  fi
+done
 
 # Symlink VS Code settings and keybindings to the present `settings.json` and `keybindings.json` files
 # If it's a macOS
@@ -50,32 +51,36 @@ if [[ `uname` =~ "Darwin" ]]; then
 else
   CODE_PATH=~/.config/Code/User
   # If this folder doesn't exist, it's a WSL
-  if [ ! -e $CODE_PATH ]; then
+  if [ ! -e "$CODE_PATH" ]; then
     CODE_PATH=~/.vscode-server/data/Machine
   fi
 fi
 
+mkdir -p "$CODE_PATH"
 for name in settings.json keybindings.json; do
   target="$CODE_PATH/$name"
-  backup $target
-  symlink $PWD/$name $target
+  backup "$target"
+  symlink "$DOTFILES_DIR/$name" "$target"
 done
 
 # Symlink SSH config file to the present `config` file for macOS and add SSH passphrase to the keychain
 if [[ `uname` =~ "Darwin" ]]; then
+  mkdir -p "$HOME/.ssh"
   target=~/.ssh/config
-  backup $target
-  symlink $PWD/config $target
-  ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+  backup "$target"
+  symlink "$DOTFILES_DIR/config" "$target"
+  if [ -f "$HOME/.ssh/id_ed25519" ]; then
+    ssh-add --apple-use-keychain "$HOME/.ssh/id_ed25519"
+  fi
 fi
 
 # Claude Code: symlink statusline script; copy settings template if no settings exist yet
 mkdir -p "$HOME/.claude"
-symlink $PWD/claude/statusline-command.sh "$HOME/.claude/statusline-command.sh"
+symlink "$DOTFILES_DIR/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
 chmod +x "$HOME/.claude/statusline-command.sh"
 if [ ! -f "$HOME/.claude/settings.json" ]; then
   echo "-----> Copying Claude Code settings template to ~/.claude/settings.json"
-  cp $PWD/claude/settings.json "$HOME/.claude/settings.json"
+  cp "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
 fi
 
 # Refresh the current terminal with the newly installed configuration

@@ -1,10 +1,14 @@
-# Setup the PATH for pyenv binaries and shims
+# Set Homebrew paths when installed (Apple Silicon or Intel).
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(/opt/homebrew/bin/brew shellenv 2> /dev/null)"
-type -a pyenv > /dev/null && eval "$(pyenv init --path)"
-# Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if command -v pyenv >/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
+fi
 
-# Created by `pipx` on 2024-07-13 08:55:54
-export PATH="$PATH:/Users/granthall/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"

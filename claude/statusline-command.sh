@@ -357,15 +357,11 @@ render_extra_usage() {
     enabled=$(echo "$data" | jq -r '.extra_usage.is_enabled // false' 2>/dev/null)
     [ "$enabled" != "true" ] && return
 
-    local pct used limit
-    pct=$(echo "$data" | jq -r '.extra_usage.utilization // 0' | awk '{printf "%.0f", $1}')
+    local used
     used=$(echo "$data" | jq -r '.extra_usage.used_credits // 0' | LC_NUMERIC=C awk '{printf "%.2f", $1/100}')
-    limit=$(echo "$data" | jq -r '.extra_usage.monthly_limit // 0' | LC_NUMERIC=C awk '{printf "%.2f", $1/100}')
 
-    if [ -n "$used" ] && [ -n "$limit" ] && [[ "$used" != *'$'* ]] && [[ "$limit" != *'$'* ]]; then
-        local color
-        color=$(usage_color "$pct")
-        out+="${sep}${white}extra${reset} ${color}\$${limit}/\$${used}${reset}"
+    if [ -n "$used" ] && [[ "$used" != *'$'* ]]; then
+        out+="${sep}${white}extra${reset} ${orange}\$${used}${reset}"
     else
         out+="${sep}${white}extra${reset} ${green}enabled${reset}"
     fi

@@ -48,6 +48,13 @@ See [iterm/README.md](iterm/README.md) for portable profile appearance and how t
 refresh it. The live iTerm preferences and Finder metadata remain local and are
 not tracked.
 
+## Syncing changes
+
+Shell, Git, SSH, VS Code and the Claude statusline use symlinks into this
+checkout after installation. Commit and push changes here to save them on GitHub.
+Brave and iTerm use explicit portable exports; refresh those separately using
+their linked instructions. Private app state stays local.
+
 ## Current machine setup
 
 - Shell startup uses mise last so its managed tools take precedence, with rbenv
