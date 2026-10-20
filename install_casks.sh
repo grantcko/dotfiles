@@ -2,24 +2,16 @@
 
 # List of apps to check and install
 apps=(
-    "fbreader"
     "brave-browser"
-    "biglybt"
     "google-drive"
     "surfshark"
     "deepl"
-    "libreoffice"
-    "appcleaner"
-    "iterm2"
     "ghostty"
-    "visual-studio-code"
     "vlc"
     "anki"
     "telegram"
     "zoom"
     "grandperspective" 
-    "keepassxc"
-    "handbrake"
 )
 
 print_separator() {

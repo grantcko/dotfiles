@@ -20,19 +20,21 @@ zsh install.sh
 - [git](https://git-scm.com/)
 
 ## Native Mac apps
-- FBReader
+
+`install_casks.sh` installs:
+
 - Brave Browser
-- Biglybt
 - Google Drive
-- surfshark
-- visual studio code
-- davinci resolve
-- adobe lightroom
-- adobe photoshop
-- deepl
-- libreoffice
-- surfshark
-- app cleaner
+- Surfshark
+- DeepL
+- Ghostty
+- VLC
+- Anki
+- Telegram
+- Zoom
+- GrandPerspective
+
+Saved iTerm and VS Code settings remain available separately.
 
 notes:
 - save logs and other data from resolve and other applications
