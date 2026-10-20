@@ -80,11 +80,20 @@ if [[ "$(uname)" == "Darwin" ]]; then
 else
   GHOSTTY_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/ghostty"
 fi
-mkdir -p "$GHOSTTY_DIR/themes"
-for name in config.ghostty themes/iTerm-light themes/iTerm-dark; do
+mkdir -p "$GHOSTTY_DIR"
+for name in config.ghostty; do
   target="$GHOSTTY_DIR/$name"
   backup "$target"
   symlink "$DOTFILES_DIR/ghostty/$name" "$target"
+done
+
+# Named themes are resolved from the XDG config directory, including on macOS.
+GHOSTTY_THEMES="${XDG_CONFIG_HOME:-$HOME/.config}/ghostty/themes"
+mkdir -p "$GHOSTTY_THEMES"
+for name in iTerm-light iTerm-dark; do
+  target="$GHOSTTY_THEMES/$name"
+  backup "$target"
+  symlink "$DOTFILES_DIR/ghostty/themes/$name" "$target"
 done
 
 # Claude Code: symlink statusline script; copy settings template if no settings exist yet
