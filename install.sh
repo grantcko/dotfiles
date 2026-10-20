@@ -74,6 +74,19 @@ if [[ `uname` =~ "Darwin" ]]; then
   fi
 fi
 
+# Ghostty: keep settings and custom themes in this checkout.
+if [[ "$(uname)" == "Darwin" ]]; then
+  GHOSTTY_DIR="$HOME/Library/Application Support/com.mitchellh.ghostty"
+else
+  GHOSTTY_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/ghostty"
+fi
+mkdir -p "$GHOSTTY_DIR/themes"
+for name in config.ghostty themes/iTerm-light themes/iTerm-dark; do
+  target="$GHOSTTY_DIR/$name"
+  backup "$target"
+  symlink "$DOTFILES_DIR/ghostty/$name" "$target"
+done
+
 # Claude Code: symlink statusline script; copy settings template if no settings exist yet
 mkdir -p "$HOME/.claude"
 symlink "$DOTFILES_DIR/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"

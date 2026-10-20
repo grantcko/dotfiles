@@ -55,6 +55,12 @@ checkout after installation. Commit and push changes here to save them on GitHub
 Brave and iTerm use explicit portable exports; refresh those separately using
 their linked instructions. Private app state stays local.
 
+## Ghostty
+
+`ghostty/` saves the current font, keybindings and light/dark iTerm-derived
+colors. `install_casks.sh` includes Ghostty; `install.sh` links its config and
+themes (backing up existing regular files). Custom themes use portable names.
+
 ## Current machine setup
 
 - Shell startup uses mise last so its managed tools take precedence, with rbenv

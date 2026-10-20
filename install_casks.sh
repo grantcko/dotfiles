@@ -11,6 +11,7 @@ apps=(
     "libreoffice"
     "appcleaner"
     "iterm2"
+    "ghostty"
     "visual-studio-code"
     "vlc"
     "anki"

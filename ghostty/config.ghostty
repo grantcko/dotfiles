@@ -1,0 +1,45 @@
+# Match iTerm2's Default profile.
+font-family = JetBrains Mono
+font-size = 20
+theme = light:iTerm-light,dark:iTerm-dark
+window-theme = system
+window-colorspace = srgb
+background-opacity = 1
+background-blur = false
+cursor-style = block
+cursor-style-blink = true
+shell-integration-features = no-cursor
+macos-option-as-alt = true
+window-width = 80
+window-height = 40
+window-inherit-working-directory = true
+
+# iTerm keeps 10,000 lines; Ghostty limits bytes instead.
+# Approximation for an 80-column terminal, rather than an exact line limit.
+scrollback-limit = 16000000
+
+# iTerm's custom editing keys.
+keybind = super+s=text:\x1bs
+keybind = super+backspace=text:\x15
+keybind = alt+backspace=text:\x1b\x7f
+keybind = alt+left=text:\x1bb
+keybind = alt+right=text:\x1bf
+keybind = super+left=text:\x01
+keybind = super+right=text:\x05
+keybind = delete=text:\x04
+keybind = alt+delete=text:\x1bd
+
+# Equivalent iTerm app shortcuts.
+keybind = ctrl+shift+s=new_split:right
+keybind = super+alt+left=previous_tab
+keybind = super+alt+right=next_tab
+keybind = super+ctrl+left=move_tab:-1
+keybind = super+ctrl+right=move_tab:1
+keybind = super+up=scroll_page_lines:-1
+keybind = super+down=scroll_page_lines:1
+keybind = super+home=scroll_to_top
+keybind = super+end=scroll_to_bottom
+keybind = super+page_up=scroll_page_up
+keybind = super+page_down=scroll_page_down
+keybind = shift+page_up=scroll_page_up
+keybind = shift+page_down=scroll_page_down
