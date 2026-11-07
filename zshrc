@@ -6,6 +6,9 @@ ZSH_THEME="robbyrussell"
 # Useful oh-my-zsh plugins
 plugins=(git gitfast last-working-dir common-aliases history-substring-search)
 
+# tmux chooses the folder; don't replace home with a cached project directory.
+[[ -n "${TMUX:-}" ]] && plugins=(${plugins:#last-working-dir})
+
 # Add syntax highlighting only if installed
 [ -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ] && plugins+=(zsh-syntax-highlighting)
 

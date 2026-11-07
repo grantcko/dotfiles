@@ -85,6 +85,15 @@ local settings, logs and session data are not included.
 colors. `install_casks.sh` includes Ghostty; `install.sh` links its config and
 themes (backing up existing regular files). Custom themes use portable names.
 
+## tmux
+
+`tmux.conf` links to `~/.tmux.conf`. New-tab and split shortcuts inherit the
+current pane's directory, falling back to home when unavailable. `zshenv` recovers
+tmux's requested start directory if tmux 3.8 launches a shell in a deleted working
+directory, before Homebrew, mise or prompt setup runs. Existing sessions stay open.
+The shell's last-working-directory plugin is disabled inside tmux so it cannot
+replace an explicitly selected home directory with an unrelated cached project.
+
 ## Current machine setup
 
 - Shell startup uses mise last so its managed tools take precedence, with rbenv
