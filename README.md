@@ -52,17 +52,32 @@ not tracked.
 
 ## Syncing changes
 
-Shell, Git, SSH, VS Code, global Codex instructions and the Claude statusline use symlinks into this
-checkout after installation. Commit and push changes here to save them on GitHub.
+Shell, Git, SSH, VS Code, shared agent instructions and the Claude statusline use
+symlinks into this checkout after installation. Commit and push changes here to
+save them on GitHub.
 Brave and iTerm use explicit portable exports; refresh those separately using
 their linked instructions. Private app state stays local.
 
-## Codex instructions
+## Shared agent instructions
 
-`codex/AGENTS.md` contains the global instructions used at `~/.codex/AGENTS.md`.
-`install.sh` links that path to this checkout, backing up an existing regular file.
-Edit either path, then commit and push the change here. Codex credentials, local
-settings, logs and session data are not included.
+`~/.agents/AGENTS.md` is the canonical shared path for global instructions.
+Its Git-backed storage is `agents/AGENTS.md` in this checkout:
+
+```text
+~/.agents/AGENTS.md -> dotfiles/agents/AGENTS.md
+~/.codex/AGENTS.md  -> ~/.agents/AGENTS.md
+~/.claude/CLAUDE.md imports @~/.agents/AGENTS.md
+```
+
+`install.sh` installs the two symlinks, backing up existing files or obsolete
+links. Claude's existing import stays in its own instructions file; on another
+machine, add `@~/.agents/AGENTS.md` there while keeping any Claude-specific rules.
+Edit `~/.agents/AGENTS.md`, then commit and push here. The links all reach the
+same file, so changes are immediately shared. `~/.agents/agents/` is a separate
+directory for agent definitions, currently empty; it is not the global rules file.
+No copy or sync job is needed. Project instructions stay in each project's
+`AGENTS.md`. Reusable workflows stay in the enabled Notion skills. Credentials,
+local settings, logs and session data are not included.
 
 ## Ghostty
 

@@ -105,11 +105,21 @@ if [ ! -f "$HOME/.claude/settings.json" ]; then
   cp "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
 fi
 
-# Codex: keep global agent instructions in this checkout.
-mkdir -p "$HOME/.codex"
-target="$HOME/.codex/AGENTS.md"
-backup "$target"
-symlink "$DOTFILES_DIR/codex/AGENTS.md" "$target"
+# Shared agent instructions: one source for the common path and Codex.
+mkdir -p "$HOME/.agents" "$HOME/.codex"
+for link in "$HOME/.agents/AGENTS.md" "$HOME/.codex/AGENTS.md"; do
+  if [ "$link" = "$HOME/.agents/AGENTS.md" ]; then
+    source="$DOTFILES_DIR/agents/AGENTS.md"
+  else
+    source="$HOME/.agents/AGENTS.md"
+  fi
+  # Preserve obsolete links as well as regular files when migrating layouts.
+  if [ -L "$link" ] && [ "$(readlink "$link")" != "$source" ]; then
+    mv "$link" "$link.backup.$(date +%Y%m%d%H%M%S).$$"
+  fi
+  backup "$link"
+  symlink "$source" "$link"
+done
 
 # Refresh the current terminal with the newly installed configuration
 exec zsh
