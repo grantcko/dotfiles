@@ -105,6 +105,12 @@ if [ ! -f "$HOME/.claude/settings.json" ]; then
   cp "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
 fi
 
+# Codex: keep global agent instructions in this checkout.
+mkdir -p "$HOME/.codex"
+target="$HOME/.codex/AGENTS.md"
+backup "$target"
+symlink "$DOTFILES_DIR/codex/AGENTS.md" "$target"
+
 # Refresh the current terminal with the newly installed configuration
 exec zsh
 

@@ -52,10 +52,17 @@ not tracked.
 
 ## Syncing changes
 
-Shell, Git, SSH, VS Code and the Claude statusline use symlinks into this
+Shell, Git, SSH, VS Code, global Codex instructions and the Claude statusline use symlinks into this
 checkout after installation. Commit and push changes here to save them on GitHub.
 Brave and iTerm use explicit portable exports; refresh those separately using
 their linked instructions. Private app state stays local.
+
+## Codex instructions
+
+`codex/AGENTS.md` contains the global instructions used at `~/.codex/AGENTS.md`.
+`install.sh` links that path to this checkout, backing up an existing regular file.
+Edit either path, then commit and push the change here. Codex credentials, local
+settings, logs and session data are not included.
 
 ## Ghostty
 
