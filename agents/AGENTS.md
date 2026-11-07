@@ -20,6 +20,8 @@ At task end, close every automation browser session created or used for that tas
 
 Use the canonical connected 1Password vault for authorized credentials, including cards and the iPhone passcode. Reuse standing authorization and complete authorized authentication autonomously; do not ask again for access already granted. Never print or save secret values in chat, instructions, scripts or logs.
 
+Prefer the connected 1Password plugin for all vault access. Avoid invoking the `op` CLI directly whenever the plugin can handle the task. Do not add CLI calls as a convenience fallback; use the CLI only when a required capability is unavailable through the plugin.
+
 Use `agent-device` for phone/mobile interaction unless it cannot complete the task or a higher-priority instruction requires another tool. Load the iPhone automation and recovery skill before phone work, including signing and XCTest bootstrap recovery.
 
 Grant authorizes the connected iPhone's saved device passcode as the normal fallback when Face ID is unavailable during authorized phone work. Verify Apple's device-passcode prompt and the matching device before entry; never use that code for an app-specific PIN. Do not ask again.
