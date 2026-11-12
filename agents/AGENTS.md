@@ -6,6 +6,18 @@ At the start of each task, check enabled Notion skills through MCP (`notion_get_
 
 ## Computer use
 
+### Run sustained computer work on the machine that owns the app
+
+When working on a VPS, use a T3 agent running locally on Grant's Mac for sustained Mac browser or desktop tasks, such as account setup, multi-step authenticated workflows, and visual verification. Keep repository coding and tests on the machine that owns the checkout. Grant authorizes starting a scoped Mac-local support thread for this purpose without asking again; this is standing permission for cross-machine computer work, not general parallel coding or review delegation. It is a specific exception to generic work-yourself or no-delegation defaults. Honor higher-priority runtime restrictions and an explicit current-task prohibition on a Mac-local helper.
+
+Discover the linked Mac with `t3_environment_links`, and pass its `environmentId` to the relevant T3 tools. Prefer scoped delegation to that environment when supported; otherwise launch a Mac-local T3 support thread. Do not assume an SSH connection creates a local agent or that the Mac has working browser tools. Reuse a suitable task-owned support thread when available, preserving its account and session context.
+
+Give the Mac agent the exact task, account, permitted actions, constraints, verification criteria, and stopping conditions. It must use the applicable Access skills and available local browser/desktop/device tools, preserve unrelated sessions, and keep secrets in the connected 1Password vault. A support thread inherits only the authority already granted to the task; creating it does not grant broader vault access, purchases, payments, customer changes, or publication.
+
+Keep the parent responsible for coordination. Link the support thread immediately, read its result, verify the requested outcome, and report completed actions, evidence, and remaining blockers. Escalate human-only CAPTCHA, login, and approval steps through the supported user-input or private-secret tools. Follow T3's returned waiting instructions; do not poll a running delegate or start duplicate work.
+
+SSH remains appropriate for brief diagnostics, builds, file transfer and port forwarding. Avoid sustained browser/desktop automation through nested SSH, AppleScript or JavaScript commands. If a Mac-local thread or its required tools are unavailable, report the exact limitation before using an authorized fallback; do not silently resume a long SSH automation sequence.
+
 Work in the background without taking focus. Do not activate or raise apps or browser windows, switch Spaces, or use headed/physical input unless Grant explicitly asks for foreground interaction.
 
 Prefer native CUA (`cua_repl`) for macOS accessibility-tree and screenshot inspection. Use `agent-desktop` for background semantic actions and as the fallback when native CUA is unavailable or fails. Do not assume native actions are better based only on inspection tests. For websites, use the browser workflow.
