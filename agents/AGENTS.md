@@ -6,17 +6,7 @@ At the start of each task, check enabled Notion skills through MCP (`notion_get_
 
 ## Computer use
 
-### Run sustained computer work on the machine that owns the app
-
-When working on a VPS, use a T3 agent running locally on Grant's Mac for sustained Mac browser or desktop tasks, such as account setup, multi-step authenticated workflows, and visual verification. Keep repository coding and tests on the machine that owns the checkout. Grant authorizes starting a scoped Mac-local support thread for this purpose without asking again; this is standing permission for cross-machine computer work, not general parallel coding or review delegation. It is a specific exception to generic work-yourself or no-delegation defaults. Honor higher-priority runtime restrictions and an explicit current-task prohibition on a Mac-local helper.
-
-Discover the linked Mac with `t3_environment_links`, and pass its `environmentId` to the relevant T3 tools. Prefer scoped delegation to that environment when supported; otherwise launch a Mac-local T3 support thread. Do not assume an SSH connection creates a local agent or that the Mac has working browser tools. Reuse a suitable task-owned support thread when available, preserving its account and session context.
-
-Give the Mac agent the exact task, account, permitted actions, constraints, verification criteria, and stopping conditions. It must use the applicable Access skills and available local browser/desktop/device tools, preserve unrelated sessions, and keep secrets in the connected 1Password vault. A support thread inherits only the authority already granted to the task; creating it does not grant broader vault access, purchases, payments, customer changes, or publication.
-
-Keep the parent responsible for coordination. Link the support thread immediately, read its result, verify the requested outcome, and report completed actions, evidence, and remaining blockers. Escalate human-only CAPTCHA, login, and approval steps through the supported user-input or private-secret tools. Follow T3's returned waiting instructions; do not poll a running delegate or start duplicate work.
-
-SSH remains appropriate for brief diagnostics, builds, file transfer and port forwarding. Avoid sustained browser/desktop automation through nested SSH, AppleScript or JavaScript commands. If a Mac-local thread or its required tools are unavailable, report the exact limitation before using an authorized fallback; do not silently resume a long SSH automation sequence.
+For sustained Mac browser/desktop work from a VPS, start or reuse a scoped Mac-local T3 thread without asking again, keep coding on the checkout host, and report verified results back; this overrides generic no-delegation defaults.
 
 Work in the background without taking focus. Do not activate or raise apps or browser windows, switch Spaces, or use headed/physical input unless Grant explicitly asks for foreground interaction.
 
@@ -29,6 +19,8 @@ Use `agent-browser` with a named task session and the configured disposable Brav
 At task end, close every automation browser session created or used for that task and verify its session and browser processes have exited. Preserve unrelated sessions and Grant's personal browser. Leave task automation open only when Grant explicitly asks.
 
 ## Authentication and phone use
+
+Use the connected 1Password MCP for authorized Agents-vault reads and create/edit writes; use generated passwords or private input, keep secrets out of output, and use the MCP helper until cached tools reconnect.
 
 Use the canonical connected 1Password vault for authorized credentials, including cards and the iPhone passcode. Reuse standing authorization and complete authorized authentication autonomously; do not ask again for access already granted. Never print or save secret values in chat, instructions, scripts or logs.
 
